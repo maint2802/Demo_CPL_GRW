@@ -1,22 +1,37 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  let test = 10;
-  let isLogin = true;
+  // let counter = 0;
+
+  let [counter, setCounter] = useState(0);
+
+  // let/const [state, setState]= useState(initialValue)
+
+  const handleDecreCounter = () => {
+    setCounter(counter - 1);
+  };
+
+  const handlIncreCounter = () => {
+    setCounter(counter + 1);
+  };
 
   return (
     <div>
-      <p>{test}</p>
-      <p>{isLogin}</p>
-      <p>falsy: {0}</p>
-      <p>{isLogin ? "da login" : "chua logic"}</p>
-      {/* <p>{isLogin && "da login"}</p>
-      <p>{!isLogin && "chua login"}</p> */}
+      <button onClick={handleDecreCounter}>-</button>
+      <span>{counter}</span>
+      <button onClick={handlIncreCounter}>+</button>
     </div>
   );
 }
 
 export default App;
+
+// chua re-render vs re-load
+// useState
+// todo -> todoapp  -> add todo
+
+// onclick
 
 // tsx: typescript xml/html
 // jsx: javascript xml
@@ -25,12 +40,6 @@ export default App;
 
 // true
 // falsy: false, undefined, null, NaN, ''
-
-//
-
-let result = false && "da login";
-
-result = false;
 
 // hooks -> func / class
 // function component vs class component
@@ -42,3 +51,9 @@ result = false;
 // function
 
 // hooks: useState, useEffect, useRef, useCallback,
+
+// let i = 2;
+
+// console.log(i--);
+// // i=1
+// console.log(--i); //0
