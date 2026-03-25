@@ -50,3 +50,9 @@ export default App;
 // console.log(i--);
 // // i=1
 // console.log(--i); //0
+
+// useEffect, React.memo, useCallback
+// router(react-router-dom)
+// call API (axios)
+// context API (useContext)
+// localstorage
