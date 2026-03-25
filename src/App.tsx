@@ -1,26 +1,16 @@
-import "./App.css";
 import { useState } from "react";
+import "./App.css";
+import TodoAdd from "./components/TodoAdd";
+import TodoList from "./components/TodoList";
+// import export
+import type { Todo } from "./components/TodoAdd";
 
 function App() {
-  // let counter = 0;
-
-  let [counter, setCounter] = useState(0);
-
-  // let/const [state, setState]= useState(initialValue)
-
-  const handleDecreCounter = () => {
-    setCounter(counter - 1);
-  };
-
-  const handlIncreCounter = () => {
-    setCounter(counter + 1);
-  };
-
+  const [todolist, setTodolist] = useState<Todo[]>([]);
   return (
     <div>
-      <button onClick={handleDecreCounter}>-</button>
-      <span>{counter}</span>
-      <button onClick={handlIncreCounter}>+</button>
+      <TodoAdd todolist={todolist} setTodolist={setTodolist} />
+      <TodoList />
     </div>
   );
 }
@@ -30,6 +20,7 @@ export default App;
 // chua re-render vs re-load
 // useState
 // todo -> todoapp  -> add todo
+// props -> object
 
 // onclick
 
