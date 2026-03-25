@@ -3,10 +3,12 @@ import "./App.css";
 import TodoAdd from "./components/TodoAdd";
 import TodoList from "./components/TodoList";
 // import export
-import type { Todo } from "./components/TodoAdd";
+import type { Todo } from "./types/types";
 
 function App() {
   const [todolist, setTodolist] = useState<Todo[]>([]);
+
+  console.log(todolist);
   return (
     <div>
       <TodoAdd todolist={todolist} setTodolist={setTodolist} />
