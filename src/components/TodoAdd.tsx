@@ -22,10 +22,14 @@ const TodoAdd = ({ todolist, setTodolist }: TodoAddProps) => {
 
   //   preState vs currentState
 
-  // ref arr vs obj
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleAddTodo();
+    }
+  };
   return (
     <div>
-      <input type="text" ref={inputRef} />
+      <input type="text" ref={inputRef} onKeyDown={handleKeyDown} />
       <button onClick={handleAddTodo}>add</button>
     </div>
   );

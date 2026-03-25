@@ -8,3 +8,7 @@ export type TodoAddProps = {
   todolist: Todo[];
   setTodolist: React.Dispatch<React.SetStateAction<Todo[]>>;
 };
+
+export type TodoListProps = {
+  todolist: Todo[];
+};

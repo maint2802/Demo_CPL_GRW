@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <TodoAdd todolist={todolist} setTodolist={setTodolist} />
-      <TodoList />
+      <TodoList todolist={todolist} />
     </div>
   );
 }
