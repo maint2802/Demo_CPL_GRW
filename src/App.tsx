@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import TodoAdd from "./components/TodoAdd";
 import TodoList from "./components/TodoList";
@@ -7,10 +7,32 @@ import type { Todo } from "./types/types";
 
 function App() {
   const [todolist, setTodolist] = useState<Todo[]>([]);
+  // const [counter, setCounter] = useState(0);
 
+  useEffect(() => {
+    console.log("without deps");
+    // call API
+    //
+  });
+  useEffect(() => {
+    console.log("dep []");
+    // call API
+  }, []);
+  useEffect(() => {
+    console.log("dep todolist state");
+    // call API
+  }, [todolist]);
+
+  // side effect: timer(setTimeout vs setInterval), call API, DOM event (scroll)
+
+  // mount -> update -> unmount
   console.log(todolist);
   return (
     <div>
+      {(() => {
+        console.log("render");
+        return <div></div>;
+      })()}
       <TodoAdd todolist={todolist} setTodolist={setTodolist} />
       <TodoList todolist={todolist} />
     </div>
@@ -19,40 +41,12 @@ function App() {
 
 export default App;
 
-// chua re-render vs re-load
-// useState
-// todo -> todoapp  -> add todo
-// props -> object
+// useEffect
 
-// onclick
+// IIFE:
 
-// tsx: typescript xml/html
-// jsx: javascript xml
+(function sun(a, b) {
+  return a + b;
+})(1, 2);
 
-// template string: ${}
-
-// true
-// falsy: false, undefined, null, NaN, ''
-
-// hooks -> func / class
-// function component vs class component
-
-// component -> thành phần
-
-// react: 2012 2013 -> class component(state)
-// 2018: 16.8 -> hooks -> function component + hooks
-// function
-
-// hooks: useState, useEffect, useRef, useCallback,
-
-// let i = 2;
-
-// console.log(i--);
-// // i=1
-// console.log(--i); //0
-
-// useEffect, React.memo, useCallback
-// router(react-router-dom)
-// call API (axios)
-// context API (useContext)
-// localstorage
+// sum(1,2)
