@@ -1,40 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import TodoAdd from "./components/TodoAdd";
 import TodoList from "./components/TodoList";
 // import export
 import type { Todo } from "./types/types";
+import Counter from "./components/Counter";
 
 function App() {
   const [todolist, setTodolist] = useState<Todo[]>([]);
-  // const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(0);
 
-  useEffect(() => {
-    console.log("without deps");
-    // call API
-    //
-  });
-  useEffect(() => {
-    console.log("dep []");
-    // call API
+  const callback = useCallback((value: number) => {
+    console.log("value from App: ", value);
   }, []);
-  useEffect(() => {
-    console.log("dep todolist state");
-    // call API
-  }, [todolist]);
 
-  // side effect: timer(setTimeout vs setInterval), call API, DOM event (scroll)
+  // object(array) +  function
 
-  // mount -> update -> unmount
-  console.log(todolist);
   return (
     <div>
-      {(() => {
-        console.log("render");
-        return <div></div>;
-      })()}
       <TodoAdd todolist={todolist} setTodolist={setTodolist} />
       <TodoList todolist={todolist} />
+      <Counter callback={callback} counter={counter} setCounter={setCounter} />
     </div>
   );
 }
@@ -42,7 +28,7 @@ function App() {
 export default App;
 
 // useEffect
-
+// useCallback
 // IIFE:
 
 (function sun(a, b) {
@@ -50,3 +36,6 @@ export default App;
 })(1, 2);
 
 // sum(1,2)
+
+// React.memo -> HOC -> higher order component
+// HOF: higher order function
