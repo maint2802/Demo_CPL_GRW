@@ -12,3 +12,10 @@ export type TodoAddProps = {
 export type TodoListProps = {
   todolist: Todo[];
 };
+
+export type AuthUser = {
+  username: string;
+  admin: boolean;
+  email: string;
+  token: string;
+};

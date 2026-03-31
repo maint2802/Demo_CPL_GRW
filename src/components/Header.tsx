@@ -15,3 +15,5 @@ export default Header;
 // a -> re-load
 
 // context
+
+// global state: localstorage, contextAPI, lib(zustand, redux)
