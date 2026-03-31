@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthProvider";
+import { useContext } from "react";
+import type { AuthContextType } from "../types/types";
 const Header = () => {
+  const { authUser, setAuthUser } = useContext<AuthContextType>(AuthContext);
+
   return (
     <div>
       <Link to="/home">Home</Link>

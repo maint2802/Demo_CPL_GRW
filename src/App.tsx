@@ -1,15 +1,14 @@
 import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import { router } from "./routers";
-import useFetch from "./customHooks/useFetch";
-import { getAuthUser } from "./services/auth";
-import type { AuthUser } from "./types/types";
+import AuthProvider from "./contexts/AuthProvider";
+
 function App() {
-  const { data: authUser } = useFetch<AuthUser>(getAuthUser);
-
-  console.log(authUser);
-
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />;
+    </AuthProvider>
+  );
 }
 
 export default App;
